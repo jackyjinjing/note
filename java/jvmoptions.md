@@ -1,0 +1,1 @@
+## 1.查看虚拟机启动类加载顺序：-XX:+TraceClassLoading
