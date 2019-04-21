@@ -1,5 +1,7 @@
 # greys pid, trace
 
+有赞使用方法：切换为app角色：sudo su app;bash ./greys.sh pid
+
 使用greys工具跟踪线上线程的执行栈
    1. 在psp上申请一周的应用管理员角色
    2. 先ssh登陆到目的机上，执行下载并安装tbox工具箱：
@@ -19,7 +21,7 @@
 使用例子：
   1. 观察函数调用之前之后的参数值
   - 之前: 
-  watch -b *OuterRoomSearchServiceImpl  searchOuterRates params[0]
+  watch -b *SubscriptionInnerServiceImpl  createSub params[0]
   - 之后（可能在函数处理过程中改了值，可以通过该方式来检查）: 
   watch -f *OuterRoomSearchServiceImpl  searchOuterRates params[0]
   - 观察函数调用之后的返回值

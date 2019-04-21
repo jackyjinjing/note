@@ -1,0 +1,119 @@
+
+redis和mercache的区别：
+
+redis数据类型：string，list，set，hash，zset
+
+redis备份方案：
+
+redis集群：
+
+一致性hash算法：
+
+redis官方文档提供的分布式锁方案：
+#加锁
+直接调用set方法，key，value，NX，EX
+#解锁
+lua脚本：get比较值相等，然后删除锁
+eval命令执行lua脚本，keys，values
+
+
+数据库视图：
+
+数据库索引B+树：
+
+数据库触发器：
+
+数据库sql优化：
+
+数据库事务，redolog和undolog，mvcc
+
+数据库锁：
+##悲观锁
+  使用性质划分
+  ### 共享锁 读锁
+  ### 排他锁 写锁 更新锁
+  作用范围划分
+  ### 行锁 表锁。数据库能够确定那些行需要锁的情况下使用行锁，如果不知道会影响哪些行的时候就会使用表锁。
+
+##乐观锁
+  version或者时间戳
+
+分布式事务：
+1.XA两阶段提交
+## 事务管理器检查各个资源事务是否准备好，如果都做准备好折提交
+## 执行各个事务，如果有任何一个失败，则执行成功的回滚
+强依赖数据库，高并发场景速度慢。
+
+2.tcc
+## try，各服务尝试锁定资源
+## confirm，真正执行操作
+## cancel，有任何一个失败，则回滚执行成功的
+
+3.本地消息表
+##
+
+zookeeper：
+
+gc算法：
+##标记清除
+##复制算法
+##标记-压缩
+##分代收集 新生代用复制算法，老年代用标记-清除整理
+
+红黑二叉树：
+1 根节点和叶子节点(leafchild) 节点必须是黑节点，内部节点(internalnode)非黑即红。
+
+
+2 从根节点开始到每条子路径的叶子节点(leafchild)，所有的黑节点数目相同。
+
+3 红节点的父亲节点必须是黑节点。
+
+限流方案：
+
+stream的实现：
+
+spring的启动过程：
+
+springboot启动过程：
+
+springcloud：
+
+dubbo：
+
+netty：
+
+消息中间件：
+
+配置中心：
+
+查询jvm问题：
+cpu使用率过高：
+1.通过top查询进程的cpu和内存使用情况
+2.通过ps命令查询进程下面线程占用cpu的使用情况（ps -mp pid -o THREAD,tid,time），找到占用时间较长的线程
+3.通过jstack打印具体的线程情况
+printf "%x\n" 27320
+
+内存使用过高：
+1.通过top命令查询使用过高的进程
+2.通过jmap打印内存使用情况（jmap -histo:live 31394 | head -n 100）
+
+cas原理：
+
+volatile原理：
+
+sync原理，偏向锁，轻量级锁，重量级锁
+1.https://blog.csdn.net/smileiam/article/details/80364641
+2.https://blog.csdn.net/javazejian/article/details/72828483#commentBox
+
+对象头markCode：
+https://blog.csdn.net/SCDN_CP/article/details/86491792
+
+threadlocal原理，缺陷：
+
+arrayBlockQueue：
+
+linkedBlockQueue：
+
+二叉树算法题：leetCode算法题
+
+
