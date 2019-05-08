@@ -1,0 +1,2 @@
+1.c创建一个新的redis.config
+cp redis-6379.conf redis-6378.conf && sed -i "s/6379/6378/g" redis-6378.conf
