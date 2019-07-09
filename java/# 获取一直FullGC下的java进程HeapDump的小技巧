@@ -1,0 +1,27 @@
+# 获取一直FullGC下的java进程HeapDump的小技巧
+
+## 小技巧
+我们应用的java进程出问题的时候，我们往往会用jmap或者gcore拿到一份HeapDump，拿到zprofiler 上做一次Heap分析，但是 如果你排查的是一直在FullGC的gc问题，你Dump下来的堆往往是正处于FullGC中，可能会导致分析失败。发现了一个小技巧，可以dump下完整而且没有在被移动中的Heap。
+
+### 操作流程
+
+#### 找到java进程，gdb attach上去， 例如 gdb -p 22443
+
+#### 找到这个HeapDumpBeforeFullGC的地址（这个flag如果为true，会在FullGC之前做HeapDump，默认是false）
+(gdb) p &HeapDumpBeforeFullGC
+$2 = (<data variable, no debug info> *) 0x7f7d50fc660f <HeapDumpBeforeFullGC>
+
+#### 然后把他设置为true，这样下次FGC之前就会生成一份dump文件
+(gdb) set *0x7f7d50fc660f = 1
+(gdb) quit
+
+#### 最后，等一会，等下次FullGC触发，你就有HeapDump了！(如果没有指定heapdump的名字，默认是 java_pidxxx.hprof)
+
+(PS. jstat -gcutil pid 可以查看gc的概况)
+
+(操作完成后记得gdb上去再设置回去，不然可能一直fullgc，导致把磁盘打满)
+
+
+
+
+
