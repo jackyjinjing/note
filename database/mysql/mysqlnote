@@ -1,9 +1,18 @@
 mysqlnote
 
-## 用mysqladmin
+## 用mysqladmin首次设置密码或者重置密码
 
 mysqladmin -u root password "newpass"
 
-如果root已经设置过密码，采用如下方法
+## 如果root已经设置过密码，采用如下方法:
 
-mysqladmin -u root password oldpass "newpass"
+mysqladmin -u root -p123456 password 263079
+
+## 阿里云服务器安装msyql
+
+	### yum install mariadb-server -y //如果已安装可以省略  
+	### systemctl start mariadb.service //启动服务  
+	### systemctl enable mariadb.service //开机启动服务  
+	### mysql -u root -p //登录mysql  
+
+

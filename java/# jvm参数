@@ -15,13 +15,29 @@
 	### -Xms 初始堆大小
 	### -Xmx 最大堆大小
 	### -Xmn 年轻代大小
-	### -X
+	### -XX:NewSize 年轻代大小
+	### -XX:MaxNewSize 年轻代最大
+	### -XX:NewRatio 老年代和新声代的比值
 	### –XX:SurvivorRatio enden与survivor的比值
 	### -XX:+PrintGCDetails 打印gc信息
-	### -XX:PretrnureSizeThreshold 新生代gc年龄阈值
+	### -XX:PretrnureSizeThreshold 大对象直接进入老年代阈值
 	### -XXtlaSize:min=32k,preferred=1024k 线程私有空间最小值和初始值
-	### -XX:PermSize 持久代大小
-	### -XX:MaxPermSize 持久代最大
+	### -XX:MetaspaceSize 元空间大小 permSize永久代已经被移除
+	### -XX:MaxMetaspaceSize 最大元空间大小
+	### -XX:+PrintTenuringDistribution 指定JVM 在每次新生代GC时，输出幸存区中对象的年龄分布
+		Desired survivor size 75497472 bytes, new threshold 15 (max 15)
+		- age 1: 19321624 bytes, 19321624 total
+		- age 2: 79376 bytes, 19401000 total
+		- age 3: 2904256 bytes, 22305256 total
+	### -XX:InitialTenuringThreshold,初始gc年龄
+	### -XX:MaxTenuringThreshold，gc年龄阈值
+	### -XX:MaxDirectMemorySize 堆外nio内存空间
+
+	###-XX:+UseSerialGC 开启此参数使用serial & serial old搜集器（client模式默认值）
+	###-XX:+UseParallelGC 开启此参数使用parallel scavenge & parallel old搜集器（server模式默认值）
+	###-XX:+UseParNewGC  开启此参数使用ParNew & serial old搜集器（不推荐）
+	###-XX:+UseConcMarkSweepGC 开启此参数使用parallel scavenge & parallel old搜集器（server模式默认值）
+	###-XX:+UseG1GC 
 
 
 

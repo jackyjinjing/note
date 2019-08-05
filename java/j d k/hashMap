@@ -25,3 +25,13 @@
 	### hash = h^(h>>>16),hashCode的高16位和低16位进行异或，大部分的HashMap的容量都是远小于2^16,然后hashCode的高位也参与计算，减少hash冲突
 	### index = (n-1)&hash,对table的长度进行取模,和2^n-1进行&操作，就是对2^n进行取模操作
 
+
+
+
+
+## linkedHashMap
+
+  ### 继承HashMap，维护了一个链表，来保持顺序
+  ### accessOrder false按照插入顺序进行排序
+  ### accessOrder true按照先按照插入顺序排序，每次查询和插入，如果查询和插入的元素以及存在，会移动到tail，
+
