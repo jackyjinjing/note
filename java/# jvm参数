@@ -1,0 +1,30 @@
+# jvm参数
+
+## “-”开头的参数，标准参数
+
+	### -client 选择client模式的VM。客户端常使用
+	### -server 选择server模式的VM。服务端常使用
+	### -agentlib:libname[=options] 
+	### -agentpath:pathname[=options] Loads a native agent library by full pathname
+	### -classpath e:java -classpath lib/*:test.jar:test2.jar Main.class
+	### -Dproperty=value 设置系统参数。在代码中可以通过System.getProperty(property)获取
+
+## "-X"开头的参数
+	
+
+	### -Xms 初始堆大小
+	### -Xmx 最大堆大小
+	### -Xmn 年轻代大小
+	### -X
+	### –XX:SurvivorRatio enden与survivor的比值
+	### -XX:+PrintGCDetails 打印gc信息
+	### -XX:PretrnureSizeThreshold 新生代gc年龄阈值
+	### -XXtlaSize:min=32k,preferred=1024k 线程私有空间最小值和初始值
+	### -XX:PermSize 持久代大小
+	### -XX:MaxPermSize 持久代最大
+
+
+
+
+
+
